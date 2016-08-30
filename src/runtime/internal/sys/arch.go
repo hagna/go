@@ -12,6 +12,7 @@ const (
 	ARM64
 	I386
 	MIPS64
+	MIPS32
 	PPC64
 	S390X
 )
