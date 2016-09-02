@@ -28,7 +28,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-package mips64
+package mips32
 
 import "cmd/internal/obj/mips"
 import "cmd/compile/internal/gc"

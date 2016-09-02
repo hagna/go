@@ -13,7 +13,7 @@ import (
 	"cmd/internal/obj/mips32"
 )
 
-func jumpMIPS64(word string) bool {
+func jumpMIPS32(word string) bool {
 	switch word {
 	case "BEQ", "BFPF", "BFPT", "BGEZ", "BGEZAL", "BGTZ", "BLEZ", "BLTZ", "BLTZAL", "BNE", "JMP", "JAL", "CALL":
 		return true
@@ -23,7 +23,7 @@ func jumpMIPS64(word string) bool {
 
 // IsMIPS64CMP reports whether the op (as defined by an mips.A* constant) is
 // one of the CMP instructions that require special handling.
-func IsMIPS64CMP(op obj.As) bool {
+func IsMIPS32CMP(op obj.As) bool {
 	switch op {
 	case mips.ACMPEQF, mips.ACMPEQD, mips.ACMPGEF, mips.ACMPGED,
 		mips.ACMPGTF, mips.ACMPGTD:
@@ -34,7 +34,7 @@ func IsMIPS64CMP(op obj.As) bool {
 
 // IsMIPS64MUL reports whether the op (as defined by an mips.A* constant) is
 // one of the MUL/DIV/REM instructions that require special handling.
-func IsMIPS64MUL(op obj.As) bool {
+func IsMIPS32MUL(op obj.As) bool {
 	switch op {
 	case mips.AMUL, mips.AMULU, mips.AMULV, mips.AMULVU,
 		mips.ADIV, mips.ADIVU, mips.ADIVV, mips.ADIVVU,
@@ -44,7 +44,7 @@ func IsMIPS64MUL(op obj.As) bool {
 	return false
 }
 
-func mipsRegisterNumber(name string, n int16) (int16, bool) {
+func mips32RegisterNumber(name string, n int16) (int16, bool) {
 	switch name {
 	case "F":
 		if 0 <= n && n <= 31 {
